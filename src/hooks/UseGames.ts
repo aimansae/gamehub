@@ -3,7 +3,9 @@ import { useState, useEffect } from "react";
 
 export type Game = {
   id: number;
-  title: string; // name
+  title: string;
+  background_image: string;
+
 };
 
 //   type FetchGamesResponse = {
@@ -35,3 +37,5 @@ const UseGames = () => {
 };
 
 export default UseGames;
+
+

@@ -1,41 +1,40 @@
-import axios, { CanceledError } from "axios";
-import { useState, useEffect } from "react";
+//custom hook for fetching games
+
+import { useEffect, useState } from "react";
+import apiClient from "../services/api-client";
+import { CanceledError } from "axios";
 
 export type Game = {
   id: number;
-  title: string;
-  background_image: string;
-
+  name: string;
+  background_image:string,
+  title:string
+  
 };
 
-//   type FetchGamesResponse = {
-//     // count: number;
-//     results: Game[];
-//   };
+type FetchGameResponse = {
+  count: number;
+  results: Game[];
+};
 
 const UseGames = () => {
-  const [games, setGames] = useState<Game[]>([]);
+  const [games, setGame] = useState<Game[]>([]);
   const [error, setError] = useState("");
 
   useEffect(() => {
-    const controller = new AbortController();
 
-    // apiClient.get(/games)
-    axios
-      .get<Game[]>("https://jsonplaceholder.typicode.com/posts", {
-        signal: controller.signal,
-      })
-      .then((res) => setGames(res.data))
-      .catch((error) => {
-        if (error instanceof CanceledError) return;
-        setError(error.message);
-      });
-    return () => controller.abort();
+    const controller = new AbortController()
+    apiClient
+      .get<FetchGameResponse>("/games", {signal:controller.signal})
+      .then((res) => setGame(res.data.results))
+      .catch((err) => {
+        if (err instanceof CanceledError) return
+        setError(err.message)});
+
+      return () => controller.abort()
   }, []);
 
-  return { games, error };
+  return {games, error}
 };
 
 export default UseGames;
-
-

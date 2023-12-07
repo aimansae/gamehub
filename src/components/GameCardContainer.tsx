@@ -1,4 +1,4 @@
-import { Box } from "@chakra-ui/layout/dist/box";
+import { Box } from "@chakra-ui/react";
 import { ReactNode } from "react";
 
 type Props ={

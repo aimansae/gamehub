@@ -1,25 +1,29 @@
 //custom hook for fetching games
+import { GameQuery } from "../App";
 import useData from "./useData";
 import { Genre } from "./useGenres";
 
 export type Platform = {
-  id:number,
-  name:string,
-  slug:string,
-
-}
+  id: number;
+  name: string;
+  slug: string;
+};
 export type Game = {
   id: number;
   name: string;
-  background_image:string,
-  title:string,
-  parent_platforms:{platform: Platform}[],
-  metacritic:number,
-  
+  background_image: string;
+  title: string;
+  parent_platforms: { platform: Platform }[];
+  metacritic: number;
 };
 
+const useGames = (
+  gameQuery:GameQuery 
+) =>
+  useData<Game>(
+    "/games",
+    { params: { genres: gameQuery.genre?.id, platforms: gameQuery.platform?.id } },
+    [gameQuery]
+  );
 
-const UseGames = (selectedGenre: Genre | null) =>useData<Game>('/games', {params: {genres:selectedGenre?.id}}, [selectedGenre?.id]) 
-  
-
-export default UseGames;
+export default useGames;

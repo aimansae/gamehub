@@ -1,5 +1,6 @@
 //custom hook for fetching games
 import useData from "./useData";
+import { Genre } from "./useGenres";
 
 export type Platform = {
   id:number,
@@ -18,7 +19,7 @@ export type Game = {
 };
 
 
-const UseGames = () =>useData<Game>('/games') 
+const UseGames = (selectedGenre: Genre | null) =>useData<Game>('/games', {params: {genres:selectedGenre?.id}}, [selectedGenre?.id]) 
   
 
 export default UseGames;

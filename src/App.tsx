@@ -9,6 +9,7 @@ import PlaftormSelector from "./components/PlaftormSelector";
 import { Platform } from "./hooks/useGames";
 import SortSelector from "./components/SortSelector";
 import SearchInput from "./components/SearchInput";
+import GameHeading from "./components/GameHeading";
 
 export type GameQuery = {
   genre: Genre | null;
@@ -41,7 +42,9 @@ function App() {
         </GridItem>
       </Show>
       <GridItem area="main">
-        <Flex paddingLeft={2} marginBottom={5}>
+        <Box paddingLeft={2}>
+        <GameHeading gameQuery={gameQuery}/>
+        <Flex  marginBottom={5}>
           <Box marginRight={5}>
             {" "}
             <PlaftormSelector
@@ -59,6 +62,7 @@ function App() {
             }
           />
         </Flex>
+        </Box>
         <GameGrid gameQuery={gameQuery} />
       </GridItem>
     </Grid>

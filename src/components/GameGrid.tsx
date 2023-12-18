@@ -7,8 +7,7 @@ import { Genre } from "../hooks/useGenres";
 import { GameQuery } from "../App";
 
 type Props = {
-  gameQuery: GameQuery
-
+  gameQuery: GameQuery;
 };
 const GameGrid = ({ gameQuery }: Props) => {
   const { data, error, isLoading } = useGames(gameQuery);
@@ -17,7 +16,11 @@ const GameGrid = ({ gameQuery }: Props) => {
   return (
     <>
       {error && <p>{error}</p>}
-      <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} padding="10px" spacing={3}>
+      <SimpleGrid
+        columns={{ sm: 1, md: 2, lg: 3, xl: 4 }}
+        padding="10px"
+        spacing={6}
+      >
         {isLoading &&
           skeletons.map((skeleton) => (
             <GameCardContainer key={skeleton}>

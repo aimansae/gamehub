@@ -11,7 +11,7 @@ const GameHeading = ({gameQuery}:Props) => {
 
 
     <div>
-      <Heading as='h1' marginY={5} fontSize='5xl'>{heading}</Heading>
+      <Heading as='h1' textAlign='left' marginY={5} fontSize='5xl'>{heading}</Heading>
     </div>
   )
 }

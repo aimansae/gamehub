@@ -8,11 +8,13 @@ import { useState } from "react";
 import PlaftormSelector from "./components/PlaftormSelector";
 import { Platform } from "./hooks/useGames";
 import SortSelector from "./components/SortSelector";
+import SearchInput from "./components/SearchInput";
 
 export type GameQuery = {
   genre: Genre | null;
   platform: Platform | null;
   sortOrder: string;
+  searchText:string
 };
 function App() {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
@@ -28,7 +30,7 @@ function App() {
       }}
     >
       <GridItem area="nav">
-        <Navbar />
+        <Navbar onSearch={(searchText) => setGameQuery({...gameQuery, searchText})} />
       </GridItem>
       <Show above="lg">
         <GridItem paddingX={5} area="aside">

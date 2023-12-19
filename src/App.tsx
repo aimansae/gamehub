@@ -1,5 +1,5 @@
 import "./App.css";
-import { Box, Flex, Grid, GridItem, HStack, Show } from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem, Show } from "@chakra-ui/react";
 import Navbar from "./components/Navbar";
 import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
@@ -8,7 +8,6 @@ import { useState } from "react";
 import PlaftormSelector from "./components/PlaftormSelector";
 import { Platform } from "./hooks/useGames";
 import SortSelector from "./components/SortSelector";
-import SearchInput from "./components/SearchInput";
 import GameHeading from "./components/GameHeading";
 
 export type GameQuery = {

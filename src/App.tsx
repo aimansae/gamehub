@@ -5,8 +5,8 @@ import GameGrid from "./components/GameGrid";
 import GenreList from "./components/GenreList";
 import { Genre } from "./hooks/useGenres";
 import { useState } from "react";
-import PlaftormSelector from "./components/PlaftormSelector";
-import { Platform } from "./hooks/useGames";
+import PlaftormSelector from "./components/PlatformSelector";
+import { Platform } from "./hooks/useGames"
 import SortSelector from "./components/SortSelector";
 import GameHeading from "./components/GameHeading";
 
@@ -16,6 +16,7 @@ export type GameQuery = {
   sortOrder: string;
   searchText:string
 };
+
 function App() {
   const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
   return (
@@ -44,23 +45,11 @@ function App() {
         <Box paddingLeft={2}>
         <GameHeading gameQuery={gameQuery}/>
         <Flex  marginBottom={5}>
-          <Box marginRight={5}>
-            {" "}
-            <PlaftormSelector
-              onSelectPlatform={(platform) =>
-                setGameQuery({ ...gameQuery, platform })
-              }
-              selectedPlatform={gameQuery.platform}
-            />
-          </Box>
-
-          <SortSelector
-            sortOrder={gameQuery.sortOrder}
-            onSelectSortOrder={(sortOrder) =>
-              setGameQuery({ ...gameQuery, sortOrder })
-            }
-          />
-        </Flex>
+        <Box marginRight={5}>
+              <PlaftormSelector selectedPlatform={gameQuery.platform} onSelectPlatform={(platform) => setGameQuery({ ...gameQuery, platform}) } />
+            </Box>
+            <SortSelector sortOrder={gameQuery.sortOrder} onSelectSortOrder={(sortOrder) => setGameQuery({ ...gameQuery, sortOrder })} />
+          </Flex>
         </Box>
         <GameGrid gameQuery={gameQuery} />
       </GridItem>

@@ -15,19 +15,20 @@ export type Game = {
   title: string;
   parent_platforms: { platform: Platform }[];
   metacritic: number;
-  rating_top:number
+  rating_top: number;
 };
 
-const useGames = (
-  gameQuery:GameQuery 
-) =>
+const useGames = (gameQuery: GameQuery) =>
   useData<Game>(
     "/games",
-    { params: 
-      { genres: gameQuery.genre?.id, 
+    {
+      params: {
+        genres: gameQuery.genre?.id,
         platforms: gameQuery.platform?.id,
-      ordering:gameQuery.sortOrder,
-    search:gameQuery.searchText } },
+        ordering: gameQuery.sortOrder,
+        search: gameQuery.searchText,
+      },
+    },
     [gameQuery]
   );
 

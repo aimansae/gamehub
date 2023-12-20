@@ -8,7 +8,7 @@ type Props = {
   onSelectPlatform: (plaftorm: Platform) => void;
   selectedPlatform: Platform | null;
 };
-const PlaftormSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
+const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
   const { data, error } = usePlatforms();
   if (error) return null;
   return (
@@ -32,4 +32,4 @@ const PlaftormSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
   );
 };
 
-export default PlaftormSelector;
+export default PlatformSelector;

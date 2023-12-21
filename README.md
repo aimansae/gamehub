@@ -61,13 +61,17 @@ Deployed [site](https://game-g3za7tydz-aimans-projects-f65dee63.vercel.app/)
 Errors faced during deployment:
 1. after typing vercel in terminal, got error: Cannot be loaded because running scripts is disabled on this system
 
-[!VercelError](/game-hub/src/assets/vercel-error.PNG)
+![VercelError](./src/assets/vercel-error.PNG)
 - Steps for Solution
 
-![VercelSolution1](/game-hub/src/assets/vercel-solution1.PNG)
-![VercelSolution2](/game-hub/src/assets/vercel-solution2.PNG)
-![VercelSolution3](/game-hub/src/assets/vercel-solution3.PNG)
+![VercelSolution1](./src/assets/vercel-solution1.PNG)
+
+![VercelSolution2](./src/assets/vercel-solution2.PNG)
+
+![VercelSolution3](./src/assets/vercel-solution3.PNG)
 
 2. Hooks Error: cannot dins modules useGames/ or it's corresponding closing tag
-![HookError](/game-hub/src/assets/hook-error.PNG)
+
+![HookError](./src/assets/hook-error.PNG)
+
 - Fixed by changing file extension fro .ts to .tsx
